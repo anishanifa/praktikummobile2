@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/choose_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="Pilih Mata Uang ?"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/icon_currency"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/icon_currency"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/choose_currency"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/choose_currency"
+            app:srcCompat="@drawable/money_" />
+
+        <RadioGroup
+            android:id="@+id/currency_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/c_euro"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@+id/choose_currency"
+            app:layout_constraintTop_toBottomOf="@+id/choose_currency">
+
+            <RadioButton
+                android:id="@+id/c_euro"
+                style="@style/Widget.CurrencyConverter.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Euro" />
+
+            <RadioButton
+                android:id="@+id/c_dollar"
+                style="@style/Widget.CurrencyConverter.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="US Dollar" />
+
+            <RadioButton
+                android:id="@+id/c_yen"
+                style="@style/Widget.CurrencyConverter.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Japanese Yen" />
+
+            <RadioButton
+                android:id="@+id/c_riyal"
+                style="@style/Widget.CurrencyConverter.TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saudi Riyal" />
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/money_value"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="Nilai Mata Uang"
+            app:layout_constraintStart_toEndOf="@+id/icon_conversion"
+            app:layout_constraintTop_toBottomOf="@+id/currency_choice">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/currency_value"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal">
+        </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_convertor"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="38dp"
+            android:text="Konversi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/money_value" />
+
+        <ImageView
+            android:id="@+id/icon_conversion"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@+id/money_value"
+            app:layout_constraintEnd_toStartOf="@+id/money_value"
+            app:layout_constraintTop_toTopOf="@+id/money_value"
+            app:srcCompat="@drawable/exchange_rate" />
+
+        <TextView
+            android:id="@+id/currency_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.CurrencyConverter.TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_convertor" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
